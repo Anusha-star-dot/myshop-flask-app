@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myshop-flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myshop-flask-app
+  template:
+    metadata:
+      labels:
+        app: myshop-flask-app
+    spec:
+      containers:
+      - name: myshop-flask-app
+        image: anushaice/myshop-flask-app:latest
+        ports:
+        - containerPort: 5000
